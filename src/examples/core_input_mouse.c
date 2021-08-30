@@ -10,13 +10,12 @@ platform_window_details window = {
 
 // Global vars
 rf_vec2 ball_position;
-rf_color ball_color;
+rf_color ball_color = RF_MAROON;;
 
 // Initialization
 extern void game_init()
 {
-	ball_position = (rf_vec2){(float) sapp_width() /2, (float) sapp_height() /2};\
-	ball_color = RF_MAROON;
+	ball_position = (rf_vec2){(float) sapp_width() /2, (float) sapp_height() /2};
 }
 
 // Main Loop

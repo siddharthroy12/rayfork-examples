@@ -10,14 +10,13 @@ platform_window_details window = {
 
 // Global vars
 int box_position_y;
-int scroll_speed;
+int scroll_speed = 4;
 char output_text[100];
 
 // Initialization
 extern void game_init()
 {
 	box_position_y = sapp_height() / 2 - 40;
-	scroll_speed = 4;
 }
 
 // Main Loop
