@@ -15,7 +15,8 @@ rf_color ball_color;
 // Initialization
 extern void game_init()
 {
-	ball_position = (rf_vec2){(float) sapp_width() /2, (float) sapp_height() /2};
+	ball_position = (rf_vec2){(float) sapp_width() /2, (float) sapp_height() /2};\
+	ball_color = RF_MAROON;
 }
 
 // Main Loop
@@ -25,7 +26,7 @@ extern void game_update()
     rf_begin();
         rf_clear(RF_RAYWHITE);
         rf_draw_text("move ball with mouse and click mouse button to change color", 10, 10, 20, RF_DARKGRAY);
-		rf_draw_circle_v(ball_position, 50, RF_MAROON);
+		rf_draw_circle_v(ball_position, 50, ball_color);
     rf_end();
 }
 
