@@ -15,7 +15,7 @@ rf_vec2 ball_position;
 rf_color ball_color = RF_BEIGE;
 
 int touch_counter = 0;
-rf_vec2 touch_position = { 0.0f };
+rf_vec2 touch_position = { 0 };
 
 rf_vec2 touch_positions[MAX_TOUCH_POINTS] = { 0 };
 
