@@ -5,7 +5,7 @@
 platform_window_details window = {
     .width  = 800,
     .height = 450,
-    .title  = "raylib [core] example - basic window"
+    .title  = "rayfork [core] example - keyboard input"
 };
 
 // Global vars

@@ -5,7 +5,7 @@
 platform_window_details window = {
     .width  = 800,
     .height = 450,
-    .title  = "raylib [core] example - basic window"
+    .title  = "rayfork [core] example - mouse input"
 };
 
 // Global vars
@@ -15,7 +15,7 @@ rf_color ball_color;
 // Initialization
 extern void game_init()
 {
-	ball_position = (rf_vec2){(float) window.width/2, (float) window.height/2};
+	ball_position = (rf_vec2){(float) sapp_width() /2, (float) sapp_height() /2};
 }
 
 // Main Loop
