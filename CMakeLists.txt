@@ -12,20 +12,25 @@ target_include_directories(glad PUBLIC libs)
 add_library(rayfork libs/rayfork/rayfork.c)
 target_include_directories(rayfork PUBLIC libs)
 
-# Setup project
-add_executable(${CMAKE_PROJECT_NAME} src/platform.c src/main.c)
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE glad rayfork)
-target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE libs/rayfork libs/sokol)
-target_compile_definitions(${CMAKE_PROJECT_NAME} PUBLIC ASSETS_PATH="${CMAKE_CURRENT_SOURCE_DIR}/assets/") # This is useful to get an ASSETS_PATH in your IDE during development but you should comment this if you compile a release version and uncomment the next line
-#target_compile_definitions(${CMAKE_PROJECT_NAME} PUBLIC ASSETS_PATH="my-path-to-the-assets-directory") # Uncomment this line to setup the ASSETS_PATH macro to the final assets directory when you share the game
+file( GLOB APP_SOURCES src/examples/*.c )
+foreach( testsourcefile ${APP_SOURCES} )
+    # I used a simple string replace, to cut off .cpp.
+    get_filename_component(testname ${testsourcefile} NAME_WE)
+    add_executable( ${testname} ${testsourcefile} src/platform.c )
 
-# Enable MacOS specific flags and link against it's specific libraries
-if (APPLE)
-    target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC "-framework Cocoa" "-framework QuartzCore" "-framework OpenGL")
-    target_compile_options(${CMAKE_PROJECT_NAME} PUBLIC "-fobjc-arc" "-ObjC")
-endif()
+    # Make sure YourLib is linked to each app
+    target_link_libraries( ${testname} PRIVATE glad rayfork)
+    target_include_directories(${testname} PRIVATE libs/rayfork libs/sokol)
+    target_compile_definitions(${testname} PUBLIC ASSETS_PATH="${CMAKE_CURRENT_SOURCE_DIR}/assets/")
 
-# Enable Linux specific flags and link against it's specific libraries
-if (UNIX)
-    target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC m dl pthread X11 Xi Xcursor)
-endif()
+    # Enable MacOS specific flags and link against it's specific libraries
+    if (APPLE)
+        target_link_libraries(${testname} PUBLIC "-framework Cocoa" "-framework QuartzCore" "-framework OpenGL")
+        target_compile_options(${testname} PUBLIC "-fobjc-arc" "-ObjC")
+    endif()
+
+    # Enable Linux specific flags and link against it's specific libraries
+    if (UNIX)
+        target_link_libraries(${testname} PUBLIC m dl pthread X11 Xi Xcursor)
+    endif()
+endforeach( testsourcefile ${APP_SOURCES} )
