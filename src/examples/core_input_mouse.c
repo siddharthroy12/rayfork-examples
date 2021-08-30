@@ -38,6 +38,7 @@ extern void game_event(const sapp_event* event)
 		case SAPP_EVENTTYPE_MOUSE_MOVE:
 			ball_position.x = event->mouse_x;
 			ball_position.y = event->mouse_y;
+			break;
 		case SAPP_EVENTTYPE_MOUSE_DOWN:
 			switch (event->mouse_button)
 			{
