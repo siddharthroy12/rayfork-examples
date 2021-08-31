@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
-#include "../platform.h"
+#include "../../platform.h"
 #include "sokol_app.h"
 
 #define MAX_BUILDINGS   100

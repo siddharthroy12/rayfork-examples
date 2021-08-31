@@ -1,4 +1,4 @@
-#include "../platform.h"
+#include "../../platform.h"
 #include "sokol_app.h"
 
 // Window config

@@ -1,4 +1,4 @@
-#include "../platform.h"
+#include "../../platform.h"
 #include "sokol_app.h"
 
 #define MAX_TOUCH_POINTS 5
