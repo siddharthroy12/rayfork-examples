@@ -13,14 +13,12 @@ rf_vec2 ball_position;
 bool on_left, on_right, on_up, on_down = false;
 
 // Initialization
-extern void game_init()
-{
+extern void game_init() {
 	ball_position = (rf_vec2){(float) window.width/2, (float) window.height/2};
 }
 
 // Main Loop
-extern void game_update()
-{
+extern void game_update() {
 	// Update
 	if (on_left) ball_position.x -= 2.0f;
 	if (on_right) ball_position.x += 2.0f;
@@ -36,10 +34,8 @@ extern void game_update()
 }
 
 
-void update_input_state(short key_code, bool value)
-{
-	switch (key_code)
-	{
+void update_input_state(short key_code, bool value) {
+	switch (key_code) {
 		case SAPP_KEYCODE_RIGHT:
 			on_right = value; 
 			break;
@@ -58,10 +54,8 @@ void update_input_state(short key_code, bool value)
 }
 
 // Event callback
-extern void game_event(const sapp_event* event)
-{
-	switch (event->type)
-	{
+extern void game_event(const sapp_event* event) {
+	switch (event->type) {
 		case SAPP_EVENTTYPE_KEY_DOWN:
 			update_input_state(event->key_code, true);
 			break;
@@ -74,7 +68,6 @@ extern void game_event(const sapp_event* event)
 }
 
 // On Exit
-extern void game_exit(void) 
-{
+extern void game_exit(void) {
 	// Do nothing
 }

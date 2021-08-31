@@ -9,14 +9,12 @@ platform_window_details window = {
 };
 
 // Initialization
-extern void game_init()
-{
+extern void game_init() {
 	// Do nothing
 }
 
 // Main Loop
-extern void game_update()
-{
+extern void game_update() {
 	// Draw
     rf_begin();
         rf_clear(RF_RAYWHITE);
@@ -25,13 +23,11 @@ extern void game_update()
 }
 
 // Event callback
-extern void game_event(const sapp_event* event)
-{
+extern void game_event(const sapp_event* event) {
 	// Do nothing
 }
 
 // On Exit
-extern void game_exit(void) 
-{
+extern void game_exit(void) {
 	// Do nothing
 }

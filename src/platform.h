@@ -5,8 +5,7 @@
 #include "sokol_app.h"
 #include "sokol_time.h"
 
-typedef struct platform_window_details
-{
+typedef struct platform_window_details {
     int width;
     int height;
     const char* title;

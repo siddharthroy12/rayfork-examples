@@ -14,14 +14,12 @@ int scroll_speed = 4;
 char output_text[100];
 
 // Initialization
-extern void game_init()
-{
+extern void game_init() {
 	box_position_y = sapp_height() / 2 - 40;
 }
 
 // Main Loop
-extern void game_update()
-{
+extern void game_update() {
 	// Update output text
 	sprintf(output_text, "Box position Y: %03i", box_position_y);
 	// Draw
@@ -34,10 +32,8 @@ extern void game_update()
 }
 
 // Event callback
-extern void game_event(const sapp_event* event)
-{
-	switch (event->type)
-	{
+extern void game_event(const sapp_event* event) {
+	switch (event->type) {
 		case SAPP_EVENTTYPE_MOUSE_SCROLL:
 			box_position_y += (event->scroll_y * scroll_speed);
 			break;
@@ -47,7 +43,6 @@ extern void game_event(const sapp_event* event)
 }
 
 // On Exit
-extern void game_exit(void) 
-{
+extern void game_exit(void) {
 	// Do nothing
 }

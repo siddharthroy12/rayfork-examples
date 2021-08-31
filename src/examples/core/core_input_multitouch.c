@@ -22,14 +22,12 @@ rf_vec2 touch_positions[MAX_TOUCH_POINTS] = { 0 };
 char touch_index_number_text[10];
 
 // Initialization
-extern void game_init()
-{
+extern void game_init() {
 	ball_position = (rf_vec2){(float) sapp_width() /2, (float) sapp_height() /2};
 }
 
 // Main Loop
-extern void game_update()
-{
+extern void game_update() {
 	ball_color = RF_BEIGE;
 
 	if (touch_counter > 0) touch_counter--;
@@ -38,11 +36,10 @@ extern void game_update()
     rf_begin();
         rf_clear(RF_RAYWHITE);
 		// Multitouch
-        for (int i = 0; i < MAX_TOUCH_POINTS; ++i)
-        {
+        for (int i = 0; i < MAX_TOUCH_POINTS; ++i) {
             touch_position = touch_positions[i]; // Get the touch point
-            if ((touch_position.x >= 0) && (touch_position.y >= 0)) // Make sure point is not (-1,-1) as this means there is no touch for it
-            {
+			// Make sure point is not (-1,-1) as this means there is no touch for it
+            if ((touch_position.x >= 0) && (touch_position.y >= 0)) {
                 // Draw circle and touch index number
                 rf_draw_circle_v(touch_position, 34, RF_ORANGE);
 				sprintf(touch_index_number_text, "%d", i);
@@ -58,17 +55,14 @@ extern void game_update()
 }
 
 // Event callback
-extern void game_event(const sapp_event* event)
-{
-	switch (event->type)
-	{
+extern void game_event(const sapp_event* event) {
+	switch (event->type) {
 		case SAPP_EVENTTYPE_MOUSE_MOVE:
 			ball_position.x = event->mouse_x;
 			ball_position.y = event->mouse_y;
 			break;
 		case SAPP_EVENTTYPE_MOUSE_DOWN:
-			switch (event->mouse_button)
-			{
+			switch (event->mouse_button) {
 				case SAPP_MOUSEBUTTON_LEFT:
 					ball_color = RF_MAROON;
 					touch_counter = 10;
@@ -86,8 +80,7 @@ extern void game_event(const sapp_event* event)
 			}
 		case SAPP_EVENTTYPE_TOUCHES_BEGAN:
 		case SAPP_EVENTTYPE_TOUCHES_MOVED:
-			for (int i = 0; i < MAX_TOUCH_POINTS; i++)
-			{
+			for (int i = 0; i < MAX_TOUCH_POINTS; i++) {
 				touch_positions[i].x = event->touches[i].pos_x;
 				touch_positions[i].y = event->touches[i].pos_y;
 			}
@@ -97,7 +90,6 @@ extern void game_event(const sapp_event* event)
 }
 
 // On Exit
-extern void game_exit(void) 
-{
+extern void game_exit(void) {
 	// Do nothing
 }

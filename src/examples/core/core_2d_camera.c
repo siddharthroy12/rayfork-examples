@@ -13,8 +13,7 @@ platform_window_details window = {
 };
 
 // Helper function
-int get_random_value(int min, int max)
-{
+int get_random_value(int min, int max) {
 	return (rand() % (max - min + 1)) + min;
 }
 
@@ -31,8 +30,7 @@ bool on_left, on_right, on_up, on_down, on_reset = false;
 
 
 // Initialization
-extern void game_init()
-{
+extern void game_init() {
 	camera.target = (rf_vec2){ player.x + 20.0f, player.y + 20.0f };
     camera.offset = (rf_vec2){ sapp_width()/2.0f, sapp_height()/2.0f };
     camera.rotation = 0.0f;
@@ -42,8 +40,7 @@ extern void game_init()
 	srand(time(0));
 
 	// Generate buildings
-	for (int i = 0; i < MAX_BUILDINGS; i++)
-    {
+	for (int i = 0; i < MAX_BUILDINGS; i++) {
         buildings[i].width = (float)get_random_value(50, 200);
         buildings[i].height = (float)get_random_value(100, 800);
         buildings[i].y = sapp_height() - 130.0f - buildings[i].height;
@@ -56,8 +53,7 @@ extern void game_init()
 }
 
 // Main Loop
-extern void game_update()
-{
+extern void game_update() {
 	// Player movement
     if (on_right) player.x += 2;
     else if (on_left) player.x -= 2;
@@ -74,8 +70,7 @@ extern void game_update()
     else if (camera.rotation < -40) camera.rotation = -40;
 
     // Camera reset (zoom and rotation)
-    if (on_reset)
-    {
+    if (on_reset) {
         camera.zoom = 1.0f;
         camera.rotation = 0.0f;
     }
@@ -116,10 +111,8 @@ extern void game_update()
     rf_end();
 }
 
-void update_control_state(short key_code, bool value)
-{
-	switch (key_code)
-	{
+void update_control_state(short key_code, bool value) {
+	switch (key_code) {
 		case SAPP_KEYCODE_RIGHT:
 			on_right = value; 
 			break;
@@ -140,10 +133,8 @@ void update_control_state(short key_code, bool value)
 }
 
 // Event callback
-extern void game_event(const sapp_event* event)
-{
-	switch (event->type)
-	{
+extern void game_event(const sapp_event* event) {
+	switch (event->type) {
 		case SAPP_EVENTTYPE_KEY_DOWN:
 			update_control_state(event->key_code, true);
 			break;
@@ -162,7 +153,6 @@ extern void game_event(const sapp_event* event)
 }
 
 // On Exit
-extern void game_exit(void) 
-{
+extern void game_exit(void) {
 	// Do nothing
 }

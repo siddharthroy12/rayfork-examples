@@ -17,8 +17,7 @@ extern int gladLoadGL(void);
 rf_context ctx;
 rf_render_batch batch;
 
-static void sokol_on_init(void)
-{
+static void sokol_on_init(void) {
     gladLoadGL();
     
     // Initialize rayfork
@@ -32,15 +31,12 @@ static void sokol_on_init(void)
     game_init();
 }
 
-static void sokol_on_frame(void)
-{
+static void sokol_on_frame(void) {
     game_update();
 }
 
-static void sokol_on_event(const sapp_event* event)
-{
-    switch (event->type)
-    {
+static void sokol_on_event(const sapp_event* event) {
+    switch (event->type) {
         case SAPP_EVENTTYPE_RESIZED:
             rf_set_viewport(event->window_width, event->window_height);
             break;
@@ -51,15 +47,12 @@ static void sokol_on_event(const sapp_event* event)
     game_event(event);
 }
 
-static void sokol_on_cleanup(void)
-{
+static void sokol_on_cleanup(void) {
     game_exit();
 }
 
-sapp_desc sokol_main(int argc, char** argv)
-{
-    return (sapp_desc)
-    {
+sapp_desc sokol_main(int argc, char** argv) {
+    return (sapp_desc) {
         .window_title = window.title,
         .width        = window.width,
         .height       = window.height,
