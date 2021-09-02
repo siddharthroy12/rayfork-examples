@@ -130,10 +130,14 @@ extern void game_event(const sapp_event* event) {
 
 	switch (event->type) {
 		case SAPP_EVENTTYPE_KEY_DOWN:
-			action_reset = true;
+			if (event->key_code == SAPP_KEYCODE_Z) {
+				action_reset = true;
+			}
 			break;
 		case SAPP_EVENTTYPE_KEY_UP:
-			action_reset = false;
+			if (event->key_code == SAPP_KEYCODE_Z) {
+				action_reset = false;
+			}
 			break;
 		default:
 			break;
