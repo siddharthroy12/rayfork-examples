@@ -4,6 +4,17 @@ I'm porting all the examples from Raylib's website to rayfork using sokol_h back
 
 > Note: This is not complete yet
 
+## Dependencies
+
+### Window
+	none
+
+### Mac
+	Cocoa, QuartzCore, OpenGL
+
+### Linux
+	X11, Xi, Xcursor
+
 ## Building
 
 ```
