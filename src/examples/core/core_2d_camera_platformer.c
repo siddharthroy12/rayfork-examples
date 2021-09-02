@@ -9,7 +9,7 @@
 platform_window_details window = {
     .width  = 800,
     .height = 450,
-    .title  = "rayfork [core] example - 2d camera"
+    .title  = "rayfork [core] example - 2d camera platformer"
 };
 
 typedef struct player {

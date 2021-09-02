@@ -22,5 +22,7 @@ cmake --build .
 - [core_input_multitouch](./src/examples/core_input_multitouch.c)
 - [core_2d_camera](./src/examples/core_2d_camera.c)
 - [core_2d_camera_platformer](./src/examples/core/core_2d_camera_platformer.c)
+- [core_3d_camera_mode](./src/examples/core/core_3d_camera_mode.c)
+- [core_3d_camera_mode_free](./src/examples/core/core_3d_camera_free.c)
   
 Contributions are welcome, feel free to send new examples!

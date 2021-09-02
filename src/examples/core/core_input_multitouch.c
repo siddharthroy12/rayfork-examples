@@ -7,7 +7,7 @@
 platform_window_details window = {
     .width  = 800,
     .height = 450,
-    .title  = "rayfork [core] example - mouse input"
+    .title  = "rayfork [core] example - input multitouch"
 };
 
 // Global vars
