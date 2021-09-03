@@ -5,7 +5,7 @@
 platform_window_details window = {
     .width  = 800,
     .height = 450,
-    .title  = "raylib [core] example - 3d camera mode"
+    .title  = "rayfork [core] example - 3d camera mode"
 };
 
 // Global vars
