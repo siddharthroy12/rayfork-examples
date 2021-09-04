@@ -36,5 +36,6 @@ cmake --build .
 - [core_3d_camera_mode](./src/examples/core/core_3d_camera_mode.c)
 - [core_3d_camera_mode_free](./src/examples/core/core_3d_camera_free.c)
 - [core_3d_camera_first_person](./src/examples/core/core_3d_camera_first_person.c)
+- [core_3d_picking](./src/examples/core/core_3d_picking.c)
   
 Contributions are welcome, feel free to send new examples!
