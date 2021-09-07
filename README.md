@@ -38,5 +38,6 @@ cmake --build .
 - [core_3d_camera_first_person](./src/examples/core/core_3d_camera_first_person.c)
 - [core_3d_picking](./src/examples/core/core_3d_picking.c)
 - [core_word_screen](./src/examples/core/core_world_screen.c)
+- [core_window_letterbox](./src/examples/core/core_window_letterbox.c)
 
 Contributions are welcome, feel free to send new examples!
