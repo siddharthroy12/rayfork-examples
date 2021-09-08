@@ -2,7 +2,10 @@
 
 I'm porting all the examples from Raylib's website to rayfork using sokol_h backend
 
-> Note: This is not complete yet
+> **Note:** The rayfork included in this repo is a patched version by me that fixes some bugs
+
+## Rayfork's patch notes:
+- Fixed scissor mode bug
 
 ## Dependencies
 
